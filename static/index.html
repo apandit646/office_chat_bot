@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Office Policy Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Policy Assistant</h1>
+          <p class="status" id="status">Connecting…</p>
+        </div>
+      </div>
+      <button class="ghost" id="newChat" title="Start a new conversation">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        <span>New chat</span>
+      </button>
+    </header>
+
+    <main class="chat" id="chat">
+      <section class="welcome" id="welcome">
+        <div class="hero-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>
+          </svg>
+        </div>
+        <h2>Hi! How can I help you today?</h2>
+        <p>Ask anything about company policies. I'll answer from the official documents and show you where I found it.</p>
+
+        <div class="suggestions">
+          <button class="chip" data-q="What is the policy for technical certifications?">
+            <span class="chip-icon">📜</span>
+            <span><strong>Certification policy</strong><small>What does the policy cover?</small></span>
+          </button>
+          <button class="chip" data-q="Who is eligible for certification reimbursement?">
+            <span class="chip-icon">✅</span>
+            <span><strong>Eligibility</strong><small>Who can claim reimbursement?</small></span>
+          </button>
+          <button class="chip" data-q="What is the maximum reimbursement amount?">
+            <span class="chip-icon">💰</span>
+            <span><strong>Maximum amount</strong><small>How much can be reimbursed?</small></span>
+          </button>
+          <button class="chip" data-q="How do I submit a reimbursement claim?">
+            <span class="chip-icon">📝</span>
+            <span><strong>Claim process</strong><small>How do I submit a claim?</small></span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div class="composer-wrap">
+      <form class="composer" id="composer">
+        <textarea id="input" rows="1" placeholder="Ask about a policy…" maxlength="2000" required></textarea>
+        <button type="submit" id="send" aria-label="Send">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+      </form>
+      <p class="footnote">AI answers can be incomplete. Please confirm important details with HR.</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
