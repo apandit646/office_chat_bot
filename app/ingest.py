@@ -42,7 +42,14 @@ def ingest() -> int:
 
     # Rebuild from scratch so re-running doesn't create duplicate chunks
     if config.CHROMA_DIR.exists():
-        shutil.rmtree(config.CHROMA_DIR)
+        try:
+            shutil.rmtree(config.CHROMA_DIR)
+        except PermissionError as exc:
+            raise SystemExit(
+                f"Cannot rebuild {config.CHROMA_DIR}: '{exc.filename}' is locked by another "
+                "process. Stop the running app (uvicorn app.main:app) first, re-run this "
+                "script, then start the app again."
+            ) from exc
 
     Chroma.from_documents(
         documents=chunks,
